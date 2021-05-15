@@ -10,7 +10,7 @@ export const app = express();
 
 myPassport(passport);
 
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(resolve(__dirname.replace("/src", "/views"))));
 
