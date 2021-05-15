@@ -20,12 +20,19 @@
   },
   "homepage": "https://github.com/AryamanSarraf/Neighbourhood-Hack#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "bootstrap": "^5.0.0",
     "express": "^4.17.1",
+    "mongoose": "^5.12.9",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
     "socket.io": "^4.1.1"
   },
   "devDependencies": {
+    "@types/bcryptjs": "^2.4.2",
     "@types/express": "^4.17.11",
+    "@types/passport": "^1.0.6",
+    "@types/passport-local": "^1.0.33",
     "@typescript-eslint/eslint-plugin": "^4.23.0",
     "@typescript-eslint/parser": "^4.23.0",
     "eslint": "^7.26.0",
