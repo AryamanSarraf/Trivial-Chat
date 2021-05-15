@@ -2,7 +2,7 @@ import { Request, Response} from "express";
 import {resolve} from "path"
 
 export const handleGetIndex = (req: Request, res: Response) => {
-    res.sendFile(resolve(__dirname.replace("/src/controllers", "/views"), "index.html"))
+    res.sendFile(resolve(__dirname.replace("/src/controllers", "/views"), "welcome.html"))
 }
 
 export const handleGetJobs = (req: Request, res: Response) => {

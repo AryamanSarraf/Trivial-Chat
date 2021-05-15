@@ -6,3 +6,8 @@ export const handleGetUser = (req: Request, res: Response) => {
     resolve(__dirname.replace("/src/controllers", "/views"), "jobs.html")
   );
 };
+
+export const handleSignUp = (req: Request, res: Response) => {
+    console.log(req.body);
+    res.redirect("/")
+}
