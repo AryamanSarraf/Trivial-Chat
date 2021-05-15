@@ -20,6 +20,11 @@
    body {
     background-color: #FBA7A1;
     } 
+
+    .button2 {
+     top: 8%; left:80%
+
+    }
     </style>
 
 </head>  
@@ -172,6 +177,34 @@ style="width: 200px;">
 </table>
 
 </div>
+
+  <!-- Trigger the modal with a button -->
+  <!-- button2 class has some styling on top of this page -->
+  <div class="button2 position-absolute">
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">ADD</button>
+</div>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Add your Job Requirement</h4>
+      </div>
+      <div class="modal-body">
+        <p>Some text in the modal.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
 </main>
 
 <footer>
