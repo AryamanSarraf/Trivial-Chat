@@ -3,11 +3,14 @@ import session from "express-session";
 import passport from "passport";
 import { resolve } from "path";
 import { router } from "./routes/index";
-import {myPassport} from "./controllers/services/passport"
+import { userRouter } from "./routes/user";
+import { myPassport } from "./controllers/services/passport";
 
 export const app = express();
 
 myPassport(passport);
+
+app.use(express.static(resolve(__dirname.replace("/src", "/views"))));
 
 app.use(
   session({
@@ -17,9 +20,8 @@ app.use(
   })
 );
 
-app.use(express.static(resolve(__dirname.replace("/src", "/views"))));
-
 app.use("/", router);
+app.use("/user", userRouter);
 
 app.use((req, res) => {
   res.sendFile(resolve(__dirname.replace("/src", "/views"), "404.html"));
