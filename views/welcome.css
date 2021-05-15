@@ -2,7 +2,14 @@ body, html{
 	margin: 0;
 	padding: 0;
 	overflow: hidden;
-	background-color: black;
+}
+
+body {
+	background-color: black !important;
+	background-image: url(welcome.jpg);
+	background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
 }
 
 .welcome{
@@ -11,13 +18,13 @@ body, html{
 
 .button2{
 	margin-top: 30%;
-	margin-left: 18%;
+	margin-left: 38%;
 	border: none;
 } 
 
 .button{
 	margin-top: 5%;
-	margin-left: 18%;
+	margin-left: 38%;
 	border: none;
 } 
 
