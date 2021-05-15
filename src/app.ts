@@ -1,8 +1,21 @@
 import express from "express";
+import session from "express-session";
+import passport from "passport";
 import { resolve } from "path";
 import { router } from "./routes/index";
+import {myPassport} from "./controllers/services/passport"
 
 export const app = express();
+
+myPassport(passport);
+
+app.use(
+  session({
+    secret: "my secret",
+    resave: false,
+    saveUninitialized: true,
+  })
+);
 
 app.use(express.static(resolve(__dirname.replace("/src", "/views"))));
 
