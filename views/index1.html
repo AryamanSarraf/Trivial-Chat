@@ -17,7 +17,10 @@
     <style>
 
 * {box-sizing: border-box}
-body {font-family: "Lato", sans-serif;}
+body {
+  font-family: "Lato", sans-serif;
+  overflow: hidden;
+}
 
 main .container {
   left:170px;
@@ -37,10 +40,14 @@ main .container {
  }
 }
 
+body {
+    background-color: #EAFFCC;
+}
+
 .tab {
   float: left;
   border: 1px solid #ccc;
-  background-color: #f1f1f1;
+  background-color: white;
   width: 30%;
   height: 400px;
 }
@@ -74,13 +81,14 @@ main .container {
   width: 50%;
   border-left: none;
   height: 400px;
+  background-color: white;
 }
 </style>
     
   </head>
 
   <body>
-    <img class="logo" src="logo.jpeg">
+    <img class="logo" src="logo.png">
 
     <div class="site-mobile-menu site-navbar-target">
       <div class="site-mobile-menu-header">
@@ -102,7 +110,7 @@ main .container {
               </div>
             </div>-->
             <div class="col-9 order-1 text-left mr-auto">              
-              <span class="d-inline-block d-lg-block"><a href="#" class="text-black site-menu-toggle js-menu-toggle py-5"><span class="icon-menu h3 text-black"></span></a></span>
+              <span class="d-inline-block d-lg-block"><a href="#" class="text-light site-menu-toggle js-menu-toggle py-5"><span class="icon-menu h3 text-dark"></span></a></span>
               <nav class="site-navigation text-right ml-auto d-none d-lg-none" role="navigation">
                 <ul class="site-menu main-menu js-clone-nav ml-auto ">
                   <li class="active"><a href="./index.html#" class="nav-link">Messages</a></li>
@@ -120,7 +128,7 @@ main .container {
   
   <main> 
 <div class="container">
-<h2>Messages</h2>
+<h3 class="pb-4">MESSAGES</h3>
 
 
 <div class="tab">
@@ -174,7 +182,7 @@ document.getElementById("defaultOpen").click();
 <nav class="navbar fixed-bottom navbar-dark bg-dark">
   <div class="container">
     <span class="navbar-text">
-      Trivial Chat is here to help a community to reach out to one another 
+      Trivia Chat is here to help a community to reach out to one another 
     </span>
   </div>
 </nav>
