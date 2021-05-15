@@ -49,7 +49,7 @@ main .container {
 
 
 .card-img-top {
-    border-bottom: 2px black solid;
+    border: 0px black solid;
 }
 
 .col{
