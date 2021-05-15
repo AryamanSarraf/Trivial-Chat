@@ -1,0 +1,41 @@
+body, html{
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: black;
+}
+
+.welcome{
+	position: absolute;
+}
+
+.button2{
+	margin-top: 30%;
+	margin-left: 18%;
+	border: none;
+} 
+
+.button{
+	margin-top: 5%;
+	margin-left: 18%;
+	border: none;
+} 
+
+.btn-info{
+	background-color: rgb(13, 84, 141) !important
+}
+
+.btn-info:hover{
+	background-color: rgba(0, 38, 70, 0.767) !important
+}
+.modal-body{
+	font-family: sans-serif;
+}
+
+.one{
+	float: inline-end;
+}
+
+.two{
+	float: inline-start;
+}
