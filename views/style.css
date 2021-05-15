@@ -1,0 +1,33 @@
+.logo {
+	position:relative; 
+	top:5px; 
+	left:40%; 
+	height:70px; 
+	width:140px;
+	}
+
+@media (max-width: 675px)
+{
+ .logo {
+ 	left: 35;
+ 	top:3px;
+	height:60px; 
+	width:120px;
+ }
+}
+
+main .container {
+    position: absolute;
+    top: 80px;
+    left:55px;
+    } 
+@media (max-width: 675px)
+{
+ main .container {
+ 	left:20px;
+ }
+}
+
+.footer {
+	padding-top: 10px;
+}

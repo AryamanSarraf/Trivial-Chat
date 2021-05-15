@@ -1,0 +1,5 @@
+/**/node_modules
+/views/fonts
+/**/*.min.css
+/**/*.min.js
+/**/*.html.js
