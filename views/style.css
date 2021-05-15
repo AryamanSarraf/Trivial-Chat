@@ -1,7 +1,7 @@
 .logo {
 	position:relative; 
 	top:5px; 
-	left:40%; 
+	left:45%; 
 	height:70px; 
 	width:140px;
 	}
@@ -19,12 +19,23 @@
 main .container {
     position: absolute;
     top: 80px;
-    left:55px;
+    left:120px;
+    padding-right: 80px;
     } 
+
 @media (max-width: 675px)
 {
  main .container {
- 	left:20px;
+ 	left:10px;
+ 	padding-right: 10px;
+ }
+}
+
+@media (max-width: 900px)
+{
+ main .container {
+ 	left:70px;
+ 	padding-right: 40px;
  }
 }
 
