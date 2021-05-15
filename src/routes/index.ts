@@ -1,5 +1,12 @@
 import { Router } from "express";
-import {handleGetIndex, handleGetJobs, handleGetCovid19, handleGetFacilities, handleGetNoticeBoard} from "../controllers/index";
+import {
+  handleGetIndex,
+  handleGetJobs,
+  handleGetCovid19,
+  handleGetFacilities,
+  handleGetNoticeBoard,
+  handleGetMessage
+} from "../controllers/index";
 
 export const router = Router();
 
@@ -8,3 +15,4 @@ router.get("/jobs", handleGetJobs);
 router.get("/covid19", handleGetCovid19);
 router.get("/facilities", handleGetFacilities);
 router.get("/notice-board", handleGetNoticeBoard);
+router.get("/messages", handleGetMessage);

@@ -1,4 +1,5 @@
 import {MyError} from "./error";
+import {saveUserToDatabase} from "../services/microservices/user"
 
 export class MyUser {
     name: string;
@@ -14,7 +15,7 @@ export class MyUser {
         this.confirmPassword = confirmPassword;
     }
     save(){
-        console.log("saving to database");
+        saveUserToDatabase(this.name, this.username, this.email, this.password)
     }
     validate(){
         const error = new MyError();

@@ -6,6 +6,12 @@ export const handleGetIndex = (req: Request, res: Response) => {
     resolve(__dirname.replace("/src/controllers", "/views"), "welcome.html")
   );
 };
+export const handleGetMessage = (req: Request, res: Response) => {
+    console.log(req.user)
+  res.sendFile(
+    resolve(__dirname.replace("/src/controllers", "/views"), "messages.html")
+  );
+};
 
 export const handleGetJobs = (req: Request, res: Response) => {
   res.sendFile(
