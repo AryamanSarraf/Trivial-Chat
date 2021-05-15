@@ -42,3 +42,16 @@ main .container {
 .footer {
 	padding-top: 10px;
 }
+
+.card-text {
+    color: black;
+}
+
+
+.card-img-top {
+    border-bottom: 2px black solid;
+}
+
+.col{
+padding-top:30px; 
+}
