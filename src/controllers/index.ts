@@ -7,7 +7,7 @@ export const handleGetIndex = (req: Request, res: Response) => {
   );
 };
 export const handleGetMessage = (req: Request, res: Response) => {
-    console.log(req.user)
+    console.log(req.user);
   res.sendFile(
     resolve(__dirname.replace("/src/controllers", "/views"), "messages.html")
   );

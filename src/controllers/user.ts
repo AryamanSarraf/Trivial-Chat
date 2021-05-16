@@ -44,11 +44,10 @@ export const handleSignIn = (
   passport.authenticate("local", {
     failureRedirect: "/",
     successRedirect: "/messages",
-    failureFlash: true,
   })(req, res, next);
 };
 
 export const handleGetLogOut = (req: Request, res: Response) => {
   req.logOut();
-  res.redirect("/login");
+  res.redirect("/");
 };

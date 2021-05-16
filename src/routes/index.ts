@@ -7,6 +7,7 @@ import {
   handleGetNoticeBoard,
   handleGetMessage
 } from "../controllers/index";
+import {auth } from "../controllers/services/microservices/auth"
 
 export const router = Router();
 
@@ -15,4 +16,4 @@ router.get("/jobs", handleGetJobs);
 router.get("/covid19", handleGetCovid19);
 router.get("/facilities", handleGetFacilities);
 router.get("/notice-board", handleGetNoticeBoard);
-router.get("/messages", handleGetMessage);
+router.get("/messages", auth, handleGetMessage);
