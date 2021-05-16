@@ -2,9 +2,6 @@ body, html{
 	margin: 0;
 	padding: 0;
 	overflow: hidden;
-<<<<<<< HEAD
-	background-color: black 
-=======
 }
 
 section {
@@ -13,7 +10,6 @@ section {
 	background-size: cover;
     background-repeat: no-repeat;
     height: 100%;
->>>>>>> ea88265eb275a7ce95fee076e1c16d3adcce4a6d
 }
 
 section{
@@ -23,21 +19,13 @@ section{
 
 .button2{
 	margin-top: 30%;
-<<<<<<< HEAD
-	margin-left: 13%;
-=======
 	margin-left: 38%;
->>>>>>> ea88265eb275a7ce95fee076e1c16d3adcce4a6d
 	border: none;
 } 
 
 .button{
 	margin-top: 5%;
-<<<<<<< HEAD
-	margin-left: 13%;
-=======
 	margin-left: 38%;
->>>>>>> ea88265eb275a7ce95fee076e1c16d3adcce4a6d
 	border: none;
 } 
 
