@@ -1,6 +1,8 @@
 import { Request, Response } from "express";
 import { resolve } from "path";
 import { io } from "../../server";
+import {Job} from "./Entity/job"
+import {Jobs} from "../modals/job"
 
 export const handleGetIndex = (req: Request, res: Response) => {
   res.sendFile(
@@ -26,6 +28,11 @@ export const handleGetJobs = (req: Request, res: Response) => {
   res.sendFile(
     resolve(__dirname.replace("/src/controllers", "/views"), "jobs.html")
   );
+};
+
+export const handlePostJobs = (req: Request, res: Response) => {
+    console.log(req.body);
+    res.redirect("/")
 };
 
 export const handleGetCovid19 = (req: Request, res: Response) => {

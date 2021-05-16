@@ -7,6 +7,7 @@ import {
   handleGetNoticeBoard,
   handleGetMessage,
   handleGetWelcomeUser,
+  handlePostJobs,
 } from "../controllers/index";
 import { auth } from "../controllers/services/microservices/auth";
 
@@ -19,3 +20,4 @@ router.get("/facilities", handleGetFacilities);
 router.get("/notice-board", handleGetNoticeBoard);
 router.get("/messages", auth, handleGetMessage);
 router.get("/welcomeuser", handleGetWelcomeUser);
+router.post("/post", handlePostJobs);
