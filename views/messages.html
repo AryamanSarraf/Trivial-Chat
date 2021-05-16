@@ -204,6 +204,7 @@
       const message = document.getElementById("message");
       const tab = document.getElementById("tab");
       const tabContent = document.getElementById("tab-content");
+      let username = "";
 
       socket.once("new-chat-message", (msg) => {
         tabContent.innerHTML += msg + "</ br>";
@@ -221,6 +222,7 @@
         fetch("/welcomeuser")
           .then((res) => res.json())
           .then((data) => {
+          username = data.name;
             welcomeUser.innerText = `welcome ${data.name}`;
             socket.emit("user-join", data.name);
           })
@@ -231,10 +233,11 @@
         e.preventDefault();
         if (message.value !== "") {
           tabContent.innerHTML += `<div style="background-color: #dad3d3; color: #000;">You: ${message.value} </div>`;
-          socket.emit("chat-message", message.value);
+          socket.emit("chat-message", username + ": " + message.value);
           message.value = "";
         }
       });
+
     </script>
   </body>
 </html>
