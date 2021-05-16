@@ -190,7 +190,7 @@
           <p>Yo</p>
         </div>
         <form id="chat-form">
-          <input type="text" name="message" required />
+          <input type="text" id="message" required />
           <input type="submit" value="send" />
         </form>
 
@@ -237,16 +237,28 @@
       const socket = io();
       const welcomeUser = document.getElementById("welcome-user");
       const chatForm = document.getElementById("chat-form");
+      const message = document.getElementById("message");
+
+      socket.on("new-chat-message", (msg) => {
+        console.logo(msg);
+      });
+
       document.addEventListener("DOMContentLoaded", function () {
         fetch("/welcomeuser")
           .then((res) => res.json())
           .then((data) => {
             welcomeUser.innerText = `welcome ${data.name}`;
+            socket.emit("user-join", data.name);
           })
           .catch((err) => console.log(err));
       });
+
       chatForm.addEventListener("submit", function (e) {
         e.preventDefault();
+        if (message.value !== "") {
+          socket.emit("chat-message", message.value);
+          message.value = "";
+        }
       });
     </script>
   </body>

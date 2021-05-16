@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { resolve } from "path";
-import {io} from "../../server"
+import { io } from "../../server";
 
 export const handleGetIndex = (req: Request, res: Response) => {
   res.sendFile(
@@ -8,9 +8,14 @@ export const handleGetIndex = (req: Request, res: Response) => {
   );
 };
 export const handleGetMessage = (req: Request, res: Response) => {
-    io.on("connection", (socket) => {
-        console.log("user connected")
-    })
+  io.on("connection", (socket) => {
+    socket.on("user-join", (msg) => {
+      socket.broadcast.emit("new-user-join", msg);
+    });
+    socket.on("chat-message", (msg) => {
+      socket.broadcast.emit("new-chat-message", msg);
+    });
+  });
   res.sendFile(
     resolve(__dirname.replace("/src/controllers", "/views"), "messages.html")
   );
