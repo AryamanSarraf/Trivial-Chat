@@ -8,6 +8,7 @@ import {
   handleGetMessage,
   handleGetWelcomeUser,
   handlePostJobs,
+  handleGetJob
 } from "../controllers/index";
 import { auth } from "../controllers/services/microservices/auth";
 
@@ -15,9 +16,10 @@ export const router = Router();
 
 router.get("/", handleGetIndex);
 router.get("/jobs", handleGetJobs);
+router.get("/getjobs", handleGetJob);
 router.get("/covid19", handleGetCovid19);
 router.get("/facilities", handleGetFacilities);
 router.get("/notice-board", handleGetNoticeBoard);
 router.get("/messages", auth, handleGetMessage);
 router.get("/welcomeuser", handleGetWelcomeUser);
-router.post("/post", handlePostJobs);
+router.post("/jobs", handlePostJobs);

@@ -4,6 +4,13 @@ import { io } from "../../server";
 import {Job} from "./Entity/job"
 import {Jobs} from "../modals/job"
 
+export interface IBody{
+name: string,
+  ocupation: string,
+  salary: number,
+  contactNumber: number 
+}
+
 export const handleGetIndex = (req: Request, res: Response) => {
   res.sendFile(
     resolve(__dirname.replace("/src/controllers", "/views"), "welcome.html")
@@ -31,8 +38,15 @@ export const handleGetJobs = (req: Request, res: Response) => {
 };
 
 export const handlePostJobs = (req: Request, res: Response) => {
-    console.log(req.body);
-    res.redirect("/")
+    const { name, ocupation, salary, contactNumber}: IBody = req.body;
+    const newJob = new Jobs({
+        name,
+        ocupation,
+        salary,
+        contactNumber,
+    })
+    newJob.save();
+    res.redirect("/jobs")
 };
 
 export const handleGetCovid19 = (req: Request, res: Response) => {
@@ -59,3 +73,13 @@ export const handleGetNoticeBoard = (req: Request, res: Response) => {
 export const handleGetWelcomeUser = (req: Request, res: Response) => {
   res.json(req.user);
 };
+
+export const handleGetJob  = (req: Request, res: Response) => {
+    Jobs.find((err, jobs) =>{
+        if(err){
+            return console.log(err);
+        } else{
+            res.json(jobs);
+        }
+    })
+}
