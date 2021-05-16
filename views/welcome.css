@@ -2,27 +2,29 @@ body, html{
 	margin: 0;
 	padding: 0;
 	overflow: hidden;
-	background-color: black;
+	background-color: black 
 }
 
-.welcome{
-	position: absolute;
+section{
+	background-color: black !important;
+	padding: 10%;
 }
 
 .button2{
 	margin-top: 30%;
-	margin-left: 18%;
+	margin-left: 13%;
 	border: none;
 } 
 
 .button{
 	margin-top: 5%;
-	margin-left: 18%;
+	margin-left: 13%;
 	border: none;
 } 
 
 .btn-info{
-	background-color: rgb(13, 84, 141) !important
+	background-color: rgb(2, 49, 102) !important;
+	border: none !important;
 }
 
 .btn-info:hover{
