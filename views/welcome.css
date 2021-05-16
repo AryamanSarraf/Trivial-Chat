@@ -7,7 +7,7 @@ body, html{
 =======
 }
 
-body {
+section {
 	background-color: black !important;
 	background-image: url(welcome.jpg);
 	background-size: cover;
@@ -18,7 +18,7 @@ body {
 
 section{
 	background-color: black !important;
-	padding: 10%;
+	padding: 4.5%;
 }
 
 .button2{
