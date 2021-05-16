@@ -39,3 +39,7 @@ export const handleGetNoticeBoard = (req: Request, res: Response) => {
     )
   );
 };
+
+export const handleGetWelcomeUser = (req: Request, res: Response) => {
+    res.json(req.user)
+}

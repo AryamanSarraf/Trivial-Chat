@@ -5,9 +5,10 @@ import {
   handleGetCovid19,
   handleGetFacilities,
   handleGetNoticeBoard,
-  handleGetMessage
+  handleGetMessage,
+  handleGetWelcomeUser,
 } from "../controllers/index";
-import {auth } from "../controllers/services/microservices/auth"
+import { auth } from "../controllers/services/microservices/auth";
 
 export const router = Router();
 
@@ -17,3 +18,4 @@ router.get("/covid19", handleGetCovid19);
 router.get("/facilities", handleGetFacilities);
 router.get("/notice-board", handleGetNoticeBoard);
 router.get("/messages", auth, handleGetMessage);
+router.get("/welcomeuser", handleGetWelcomeUser);
