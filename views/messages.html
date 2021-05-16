@@ -153,46 +153,13 @@
       <div class="container">
         <h1 id="welcome-user"></h1>
         <h3 class="pb-4">MESSAGES</h3>
-
-        <div class="tab">
-          <button
-            class="tablinks"
-            onclick="openCity(event, 'Raj')"
-            id="defaultOpen"
-          >
-            Raj
-          </button>
-          <button class="tablinks" onclick="openCity(event, 'Alexa')">
-            Alexa
-          </button>
-          <button class="tablinks" onclick="openCity(event, 'Mom')">Mom</button>
-          <button class="tablinks" onclick="openCity(event, 'Robin Brother')">
-            Robin Brother
-          </button>
-        </div>
-
-        <div id="Raj" class="tabcontent">
-          <h3>Raj</h3>
-          <p>something here</p>
-        </div>
-
-        <div id="Alexa" class="tabcontent">
-          <h3>Alexa</h3>
-          <p>busy</p>
-        </div>
-
-        <div id="Mom" class="tabcontent">
-          <h3>Mom</h3>
-          <p>zzzz</p>
-        </div>
-        <div id="Robin Brother" class="tabcontent">
-          <h3>Robin Brother</h3>
-          <p>Yo</p>
-        </div>
         <form id="chat-form">
           <input type="text" id="message" required />
           <input type="submit" value="send" />
         </form>
+
+        <div id="tab" class="tab"></div>
+        <div id="tab-content" class="tab-content"></div>
 
         <script>
           function openCity(evt, cityName) {
@@ -211,9 +178,6 @@
             document.getElementById(cityName).style.display = "block";
             evt.currentTarget.className += " active";
           }
-
-          // Get the element with id="defaultOpen" and click on it
-          document.getElementById("defaultOpen").click();
         </script>
       </div>
     </main>
@@ -238,9 +202,19 @@
       const welcomeUser = document.getElementById("welcome-user");
       const chatForm = document.getElementById("chat-form");
       const message = document.getElementById("message");
+      const tab = document.getElementById("tab");
+      const tabContent = document.getElementById("tab-content");
 
-      socket.on("new-chat-message", (msg) => {
-        console.logo(msg);
+      socket.once("new-chat-message", (msg) => {
+        tabContent.innerHTML += msg + "</ br>";
+      });
+
+      socket.once("new-user-join", (msg) => {
+        console.log(msg);
+        const tabBtn = document.createElement("button");
+        tabBtn.classList.add("tablinks");
+        tabBtn.innerText = msg;
+        tab.appendChild(tabBtn);
       });
 
       document.addEventListener("DOMContentLoaded", function () {
@@ -256,6 +230,7 @@
       chatForm.addEventListener("submit", function (e) {
         e.preventDefault();
         if (message.value !== "") {
+          tabContent.innerHTML += `<div style="background-color: #dad3d3; color: #000;">You: ${message.value} </div>`;
           socket.emit("chat-message", message.value);
           message.value = "";
         }

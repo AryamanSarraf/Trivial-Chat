@@ -9,7 +9,7 @@ export const handleGetIndex = (req: Request, res: Response) => {
 };
 export const handleGetMessage = (req: Request, res: Response) => {
   io.on("connection", (socket) => {
-    socket.on("user-join", (msg) => {
+    socket.once("user-join", (msg) => {
       socket.broadcast.emit("new-user-join", msg);
     });
     socket.on("chat-message", (msg) => {
