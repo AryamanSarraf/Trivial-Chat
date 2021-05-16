@@ -26,6 +26,7 @@
       integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8"
       crossorigin="anonymous"
     ></script>
+    <script src="/socket.io/socket.io.js"></script>
     <style>
       * {
         box-sizing: border-box;
@@ -188,6 +189,10 @@
           <h3>Robin Brother</h3>
           <p>Yo</p>
         </div>
+        <form id="chat-form">
+          <input type="text" name="message" required />
+          <input type="submit" value="send" />
+        </form>
 
         <script>
           function openCity(evt, cityName) {
@@ -228,8 +233,10 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.sticky.js"></script>
     <script src="js/main.js"></script>
-    <script>
+    <script defer>
+      const socket = io();
       const welcomeUser = document.getElementById("welcome-user");
+      const chatForm = document.getElementById("chat-form");
       document.addEventListener("DOMContentLoaded", function () {
         fetch("/welcomeuser")
           .then((res) => res.json())
@@ -238,7 +245,9 @@
           })
           .catch((err) => console.log(err));
       });
+      chatForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+      });
     </script>
   </body>
 </html>
-

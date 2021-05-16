@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import { resolve } from "path";
+import {io} from "../../server"
 
 export const handleGetIndex = (req: Request, res: Response) => {
   res.sendFile(
@@ -7,7 +8,9 @@ export const handleGetIndex = (req: Request, res: Response) => {
   );
 };
 export const handleGetMessage = (req: Request, res: Response) => {
-    console.log(req.user);
+    io.on("connection", (socket) => {
+        console.log("user connected")
+    })
   res.sendFile(
     resolve(__dirname.replace("/src/controllers", "/views"), "messages.html")
   );
@@ -41,5 +44,5 @@ export const handleGetNoticeBoard = (req: Request, res: Response) => {
 };
 
 export const handleGetWelcomeUser = (req: Request, res: Response) => {
-    res.json(req.user)
-}
+  res.json(req.user);
+};
