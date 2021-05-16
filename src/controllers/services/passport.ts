@@ -5,8 +5,8 @@ import { User } from "../../modals/user";
 
 export const myPassport = (passport: passport.PassportStatic) => {
   passport.use(
-    new Strategy((username, password, done) => {
-      User.findOne({ username: username })
+    new Strategy({ usernameField: "email" }, (email, password, done) => {
+      User.findOne({ email: email })
         .then((user: any) => {
           if (!user) {
             return done("user do not exit", false);
@@ -18,7 +18,7 @@ export const myPassport = (passport: passport.PassportStatic) => {
                 return done(null, user);
               } else {
                 return done(
-                  "username and password combination did not match",
+                  "email and password combination did not match",
                   false
                 );
               }
