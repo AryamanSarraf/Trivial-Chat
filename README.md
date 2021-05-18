@@ -33,3 +33,18 @@ npm run dev
 now, open your browser and go to [localhost:5000](http://localhost:5000/)
 
 app should be runing.
+
+## Contributors ✨
+     
+Thanks goes to these wonderful people.
+     
+<table>
+  <tr>
+   <td>
+   <a href="https://github.com/AryamanSarraf/Trivial-Chat/graphs/contributors">
+     <img src="https://contrib.rocks/image?repo=AryamanSarraf/Trivial-Chat" />
+  </a>
+  </td>
+  </tr>
+</table>
+
