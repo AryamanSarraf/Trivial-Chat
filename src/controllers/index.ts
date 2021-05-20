@@ -1,14 +1,15 @@
 import { Request, Response } from "express";
 import { resolve } from "path";
 import { io } from "../../server";
-import {Job} from "./Entity/job"
-import {Jobs} from "../modals/job"
+//TODO use Job class to create jobs and save to database.
+//import { Job } from "./Entity/job";
+import { Jobs } from "../modals/job";
 
-export interface IBody{
-name: string,
-  ocupation: string,
-  salary: number,
-  contactNumber: number 
+export interface IBody {
+  name: string;
+  ocupation: string;
+  salary: number;
+  contactNumber: number;
 }
 
 export const handleGetIndex = (req: Request, res: Response) => {
@@ -38,15 +39,15 @@ export const handleGetJobs = (req: Request, res: Response) => {
 };
 
 export const handlePostJobs = (req: Request, res: Response) => {
-    const { name, ocupation, salary, contactNumber}: IBody = req.body;
-    const newJob = new Jobs({
-        name,
-        ocupation,
-        salary,
-        contactNumber,
-    })
-    newJob.save();
-    res.redirect("/jobs")
+  const { name, ocupation, salary, contactNumber }: IBody = req.body;
+  const newJob = new Jobs({
+    name,
+    ocupation,
+    salary,
+    contactNumber,
+  });
+  newJob.save();
+  res.redirect("/jobs");
 };
 
 export const handleGetCovid19 = (req: Request, res: Response) => {
@@ -74,12 +75,12 @@ export const handleGetWelcomeUser = (req: Request, res: Response) => {
   res.json(req.user);
 };
 
-export const handleGetJob  = (req: Request, res: Response) => {
-    Jobs.find((err, jobs) =>{
-        if(err){
-            return console.log(err);
-        } else{
-            res.json(jobs);
-        }
-    })
-}
+export const handleGetJob = (req: Request, res: Response) => {
+  Jobs.find((err, jobs) => {
+    if (err) {
+      return console.log(err);
+    } else {
+      res.json(jobs);
+    }
+  });
+};
