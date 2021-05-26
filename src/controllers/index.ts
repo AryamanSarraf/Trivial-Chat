@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { resolve } from "path";
+import { resolve, join } from "path";
 import { io } from "../../server";
 //TODO use Job class to create jobs and save to database.
 //import { Job } from "./Entity/job";
@@ -14,7 +14,9 @@ export interface IBody {
 
 export const handleGetIndex = (req: Request, res: Response) => {
   res.sendFile(
-    resolve(__dirname.replace("/src/controllers", "/views"), "welcome.html")
+    join(
+      resolve(__dirname.replace("/src/controllers", "/views"), "welcome.html")
+    )
   );
 };
 
@@ -28,13 +30,15 @@ export const handleGetMessage = (req: Request, res: Response) => {
     });
   });
   res.sendFile(
-    resolve(__dirname.replace("/src/controllers", "/views"), "messages.html")
+    join(
+      resolve(__dirname.replace("/src/controllers", "/views"), "messages.html")
+    )
   );
 };
 
 export const handleGetJobs = (req: Request, res: Response) => {
   res.sendFile(
-    resolve(__dirname.replace("/src/controllers", "/views"), "jobs.html")
+    join(resolve(__dirname.replace("/src/controllers", "/views"), "jobs.html"))
   );
 };
 
@@ -52,21 +56,30 @@ export const handlePostJobs = (req: Request, res: Response) => {
 
 export const handleGetCovid19 = (req: Request, res: Response) => {
   res.sendFile(
-    resolve(__dirname.replace("/src/controllers", "/views"), "covid-19.html")
+    join(
+      resolve(__dirname.replace("/src/controllers", "/views"), "covid-19.html")
+    )
   );
 };
 
 export const handleGetFacilities = (req: Request, res: Response) => {
   res.sendFile(
-    resolve(__dirname.replace("/src/controllers", "/views"), "facilities.html")
+    join(
+      resolve(
+        __dirname.replace("/src/controllers", "/views"),
+        "facilities.html"
+      )
+    )
   );
 };
 
 export const handleGetNoticeBoard = (req: Request, res: Response) => {
   res.sendFile(
-    resolve(
-      __dirname.replace("/src/controllers", "/views"),
-      "notice-board.html"
+    join(
+      resolve(
+        __dirname.replace("/src/controllers", "/views"),
+        "notice-board.html"
+      )
     )
   );
 };

@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import passport from "passport";
-import { resolve } from "path";
+import { resolve, join } from "path";
 import { MyUser } from "./Entity/user";
 
 export interface IBody {
@@ -13,7 +13,7 @@ export interface IBody {
 
 export const handleGetUser = (req: Request, res: Response) => {
   res.sendFile(
-    resolve(__dirname.replace("/src/controllers", "/views"), "jobs.html")
+    join(resolve(__dirname.replace("/src/controllers", "/views"), "jobs.html"))
   );
 };
 
