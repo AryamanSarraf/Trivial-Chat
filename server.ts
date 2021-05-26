@@ -10,8 +10,10 @@ const server = createServer(app);
 const port = process.env.PORT || 5000;
 export const io = new Server(server);
 
+//Connects to the database
 connectDB();
 
 server.listen(port, () =>
+  //Executed if the server is run correctly
   console.log(`server is runing on http://localhost:${port}`)
 );
