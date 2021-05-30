@@ -28,7 +28,15 @@ app.use("/", router);
 app.use("/user", userRouter);
 
 app.use((req, res) => {
-  res.sendFile(join(resolve(__dirname.replace("/src", "/views"), "404.html")));
+  if (process.platform === "win32") {
+    res.sendFile(
+      join(resolve(__dirname.replace("\\src", "\\views"), "404.html"))
+    );
+  } else {
+    res.sendFile(
+      join(resolve(__dirname.replace("/src", "/views"), "404.html"))
+    );
+  }
 });
 
 app.use(
@@ -38,9 +46,18 @@ app.use(
     res: express.Response,
     next: express.NextFunction
   ) => {
-    res.sendFile(
-      join(resolve(__dirname.replace("/src", "/views"), "error.html"))
-    );
-    next();
+    if (err) {
+      if (process.platform === "win32") {
+        res.sendFile(
+          join(resolve(__dirname.replace("\\src", "\\views"), "error.html"))
+        );
+      } else {
+        res.sendFile(
+          join(resolve(__dirname.replace("/src", "/views"), "error.html"))
+        );
+      }
+    } else {
+      next();
+    }
   }
 );
