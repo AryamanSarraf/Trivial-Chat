@@ -22,6 +22,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
 if (process.platform === "win32") {
   app.use(express.static(join(resolve(__dirname.replace("\\src", "\\views")))));
 } else {

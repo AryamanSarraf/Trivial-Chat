@@ -1,6 +1,5 @@
 import { Request, Response } from "express";
 import { resolve, join } from "path";
-import { io } from "../../server";
 //TODO use Job class to create jobs and save to database.
 //import { Job } from "./Entity/job";
 import { Jobs } from "../modals/job";
@@ -32,14 +31,6 @@ export const handleGetIndex = (req: Request, res: Response) => {
 };
 
 export const handleGetMessage = (req: Request, res: Response) => {
-  io.on("connection", (socket) => {
-    socket.on("user-join", (msg) => {
-      socket.broadcast.emit("new-user-join", msg);
-    });
-    socket.on("chat-message", (msg) => {
-      socket.broadcast.emit("new-chat-message", msg);
-    });
-  });
   if (process.platform === "win32") {
     res.sendFile(
       join(
